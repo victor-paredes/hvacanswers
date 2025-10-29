@@ -361,5 +361,16 @@ h3 {font-size:1.5rem;}
   line-height: 1.4;      
 }
 
+.gb-highlight {
+    display: inline;
+  background: linear-gradient(to bottom, #FEF295 0%, #FEF295 100%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 3px 10px 5px 10px;
+  color: #000;
+  border-radius: .25rem;
+  font-weight: bold;
+}
+
 
 /* End Vicitor additions */
