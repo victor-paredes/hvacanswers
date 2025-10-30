@@ -404,11 +404,30 @@ $(document).ready(function(){
 		infinite: false, 
 		//autoplay: true,
   		autoplaySpeed: 5000,
+		adaptiveHeight: true,
 		customPaging : function(slider, i) {
         	return '<a href="#"><img src="img/slider-bar.svg" /><img src="img/slider-bar-active.svg" /></a>';
     	},
 		prevArrow: '<img class="slick-prev" src="img/arrow-left.svg" alt="Previous Slide">', 
 		nextArrow: '<img class="slick-next" src="img/arrow-right.svg" alt="Next Slide">'
+	});
+	
+	// Handle window resize for slider
+	let resizeTimer;
+	$(window).on('resize orientationchange', function() {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(function() {
+			$('.slider-home-top').slick('unslick').slick({
+				dots: true, 
+				infinite: false,
+				adaptiveHeight: true,
+				customPaging : function(slider, i) {
+					return '<a href="#"><img src="img/slider-bar.svg" /><img src="img/slider-bar-active.svg" /></a>';
+				},
+				prevArrow: '<img class="slick-prev" src="img/arrow-left.svg" alt="Previous Slide">', 
+				nextArrow: '<img class="slick-next" src="img/arrow-right.svg" alt="Next Slide">'
+			});
+		}, 250);
 	});
 	$('.slider-home-bottom').slick({
 		prevArrow: '<img class="slick-prev" src="img/arrow-left-gray.svg" alt="Previous Slide">', 
